@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { getAllBooks, addBook, lendOutBook } from "#controllers";
+import { getAllBooks, addBook, lendOutBook, returnBook } from "#controllers";
 
 const bookRouter = Router();
 
 bookRouter.get("/", getAllBooks);
 bookRouter.post("/", addBook);
-bookRouter.put("/:id", lendOutBook);
+bookRouter.put("/out/:id", lendOutBook); //Ausleihen
+bookRouter.put("/in/:id", returnBook); //Rückgabe
 
 export default bookRouter;
